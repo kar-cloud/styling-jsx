@@ -1,35 +1,38 @@
+// Create a react app from scratch
+// show a single h1 that says "Good morning" if between midnight and 12pm
+// or good afternoon if between 12pm and 6pm
+// or good evening if between 6pm and midnight
+// Apply heading styles in Styles.css
+// Dynammically change the color of the h1 using inline css styles
+// morning = red, afternoon = green, night=blue
+
 import React from "react";
 import ReactDOM from "react-dom";
 
-// ReactDOM.render(
-//    <div>
-//       <h1 style={{ color: "red" }}>
-//          {/* we cannot add style property normally just like as
-//         in normal html file..because this is a jsx file and here style
-//         property requires a value that is a javascript object and
-//         since javascript properties if include in html tags we have
-//         to use {} that is why we get double curly braces above. */}
-//          Hello World!
-//       </h1>
-//    </div>,
-//    document.getElementById("root")
-// );
-
-var customStyle = {
-   color: "red",
-   fontSize: "30px",
-   //  we dont say font-size because here we have to use camelCasing
-   border: "2px solid blue"
+let text = "";
+const customStyle = {
+   color: ""
 };
 
-// and why we are doing this inline styling is because
-// we can decide the style of our object on the go
+const currentDate = new Date();
+const time = currentDate.getHours();
 
-customStyle.color = "pink";
+if (time >= 0 && time < 12) {
+   text = "Good Morning";
+   customStyle.color = "red";
+} else if (time >= 12 && time < 18) {
+   text = "Good Afternoon";
+   customStyle.color = "green";
+} else {
+   text = "Good Evening";
+   customStyle.color = "blue";
+}
 
 ReactDOM.render(
    <div>
-      <h1 style={customStyle}>Hello World!</h1>
+      <h1 className="heading" style={customStyle}>
+         {text}
+      </h1>
    </div>,
    document.getElementById("root")
 );

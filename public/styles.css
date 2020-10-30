@@ -1,8 +1,6 @@
 .heading {
-   color: red;
-}
-
-img {
-   height: 100px;
-   width: 100px;
+   font-size: 60px;
+   font-weight: bold;
+   border-top: 10px solid black;
+   border-bottom: 10px solid black;
 }
