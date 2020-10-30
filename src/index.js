@@ -1,22 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+// ReactDOM.render(
+//    <div>
+//       <h1 style={{ color: "red" }}>
+//          {/* we cannot add style property normally just like as
+//         in normal html file..because this is a jsx file and here style
+//         property requires a value that is a javascript object and
+//         since javascript properties if include in html tags we have
+//         to use {} that is why we get double curly braces above. */}
+//          Hello World!
+//       </h1>
+//    </div>,
+//    document.getElementById("root")
+// );
+
+var customStyle = {
+   color: "red",
+   fontSize: "30px",
+   //  we dont say font-size because here we have to use camelCasing
+   border: "2px solid blue"
+};
+
+// and why we are doing this inline styling is because
+// we can decide the style of our object on the go
+
+customStyle.color = "pink";
+
 ReactDOM.render(
    <div>
-      <h1 className="heading" contentEditable="true" spellCheck="false">
-         My Favourite Foods
-      </h1>
-      <div>
-         <img src="https://static.toiimg.com/photo/53110049.cms" alt="pizza" />
-         <img
-            src="https://kirbiecravings.com/wp-content/uploads/2018/02/garlic-noodles-61-700x680.jpg"
-            alt="noodles"
-         />
-         <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/428px-RedDot_Burger.jpg"
-            alt="burger"
-         />
-      </div>
+      <h1 style={customStyle}>Hello World!</h1>
    </div>,
    document.getElementById("root")
 );
